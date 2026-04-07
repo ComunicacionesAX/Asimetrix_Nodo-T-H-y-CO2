@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de instalación nodo temperatura, humedad y CO2</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary-fixed-dim": "#9bccf7",
+                        "surface-container-highest": "#dfe3e4",
+                        "on-error-container": "#93000a",
+                        "surface-container-high": "#e5e9ea",
+                        "on-tertiary-container": "#80dde8",
+                        "on-tertiary-fixed": "#001f23",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#bdc2ff",
+                        "primary-container": "#275c82",
+                        "on-secondary": "#ffffff",
+                        "surface-variant": "#dfe3e4",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#f6fafb",
+                        "background": "#f6fafb",
+                        "on-secondary-fixed-variant": "#3b417d",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#c1c7cf",
+                        "on-secondary-fixed": "#0d1350",
+                        "inverse-on-surface": "#edf1f2",
+                        "surface-container": "#eaeef0",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#41474e",
+                        "inverse-primary": "#9bccf7",
+                        "tertiary-fixed": "#94f1fc",
+                        "surface-container-low": "#f0f4f5",
+                        "tertiary-container": "#00626a",
+                        "inverse-surface": "#2c3132",
+                        "secondary-container": "#b3b9fe",
+                        "secondary": "#535997",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#181c1d",
+                        "tertiary": "#00484f",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#2f6389",
+                        "outline": "#72787f",
+                        "primary-fixed": "#cce5ff",
+                        "on-secondary-container": "#414884",
+                        "on-background": "#181c1d",
+                        "primary": "#014469",
+                        "surface": "#f6fafb",
+                        "surface-dim": "#d6dbdc",
+                        "on-primary-fixed-variant": "#0e4b70",
+                        "on-primary-container": "#a3d4ff",
+                        "tertiary-fixed-dim": "#77d5df",
+                        "secondary-fixed": "#e0e0ff",
+                        "on-tertiary-fixed-variant": "#004f55",
+                        "on-primary-fixed": "#001e31"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f6fafb;
+            min-height: 100dvh;
+        }
+        .text-gradient {
+            background: linear-gradient(45deg, #014469, #275c82);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-asimetrix-gradient {
+            background: linear-gradient(45deg, #014469, #275c82);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+    <!-- Header -->
+    <header class="bg-surface fixed top-0 w-full z-50 border-b border-outline-variant/20">
+        <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+            <div class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-primary">auto_stories</span>
+                <h1 class="text-lg font-bold text-primary tracking-tight">Guía de instalación</h1>
+            </div>
+            <img src="logo-horizontal.svg" alt="Asimetrix" class="h-8">
+        </div>
+    </header>
+
+    <main class="pt-24 pb-24 md:pb-12 max-w-7xl mx-auto px-6">
+        <!-- Hero Section -->
+        <section class="mb-8">
+            <div class="flex flex-col lg:flex-row gap-8 items-center">
+                <div class="flex-1">
+                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold tracking-widest uppercase rounded-lg shadow-lg shadow-primary/30 mb-4">
+                        <span class="material-symbols-outlined text-lg">sensors</span>
+                        Nodo temperatura, humedad y CO2
+                    </span>
+                    <p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                        Sigue cada paso para una correcta instalación.
+                    </p>
+                </div>
+                <div class="w-full lg:w-1/3">
+                    <img src="AN - IMG_5893.PNG" alt="Sensor" class="w-full rounded-xl shadow-lg">
+                </div>
+            </div>
+        </section>
+
+        <!-- Timeline Steps -->
+        <section class="mb-16 bg-surface-container-low p-8 rounded-xl relative overflow-hidden">
+            <div class="flex flex-wrap gap-4 mb-8">
+                <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/20 text-primary text-xs font-semibold rounded-full">
+                    <span class="material-symbols-outlined text-sm">schedule</span>
+                    2 min de lectura
+                </span>
+                <span class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-container/20 text-tertiary text-xs font-semibold rounded-full">
+                    <span class="material-symbols-outlined text-sm">timer</span>
+                    15 min de instalación
+                </span>
+            </div>
+            <div class="relative flex flex-col md:flex-row justify-between gap-4">
+                <div class="absolute top-6 left-0 w-full h-0.5 bg-outline-variant/20 hidden md:block -translate-y-1/2 z-0"></div>
+                <!-- Step 1 -->
+                <div class="relative z-10 flex md:flex-col items-center md:items-start gap-3 flex-1 bg-surface-container-highest/50 p-4 rounded-xl">
+                    <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-lg">bolt</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Paso 1</span>
+                        <span class="text-sm font-semibold text-on-surface">Verificación eléctrica</span>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="relative z-10 flex md:flex-col items-center md:items-start gap-3 flex-1 bg-surface-container-highest/50 p-4 rounded-xl">
+                    <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-lg">wifi</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Paso 2</span>
+                        <span class="text-sm font-semibold text-on-surface">Conexión y verificación</span>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="relative z-10 flex md:flex-col items-center md:items-start gap-3 flex-1 bg-surface-container-highest/50 p-4 rounded-xl">
+                    <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-lg">inventory_2</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Paso 3</span>
+                        <span class="text-sm font-semibold text-on-surface">Ensamblaje</span>
+                    </div>
+                </div>
+                <!-- Step 4 -->
+                <div class="relative z-10 flex md:flex-col items-center md:items-start gap-3 flex-1 bg-surface-container-highest/50 p-4 rounded-xl">
+                    <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary border border-outline-variant/20">
+                        <span class="material-symbols-outlined text-lg">pin_drop</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Paso 4</span>
+                        <span class="text-sm font-semibold text-on-surface">Instalación final</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step Cards Grid -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- Step 1 Card -->
+            <div id="step-1" class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">01</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Verificación eléctrica</h3>
+                <p class="text-on-surface-variant text-sm leading-6 mb-4">
+                    Antes de comenzar, verifica los siguientes requisitos en el sitio de instalación:
+                </p>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <ul class="text-xs space-y-3 font-medium text-on-surface-variant">
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Punto eléctrico a 110V
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
+                            Ambiente seco y protegido de la lluvia
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 2 Card -->
+            <div id="step-2" class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">02</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">wifi</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Conexión y verificación</h3>
+                <p class="text-on-surface-variant text-sm leading-6">
+                    Conecta el sensor al toma corriente y presiona el botón para verificar el envío de datos.
+                </p>
+                <div class="bg-surface-container-high p-4 rounded-lg">
+                    <ul class="text-xs space-y-3 font-medium text-on-surface-variant">
+                        <li class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-green-500 shadow-sm"></span>
+                            LED Verde: Conexión establecida
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-blue-500 shadow-sm"></span>
+                            LED Azul: Enviando datos
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500 shadow-sm"></span>
+                            LED Rojo: Error / Sin conexión
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Step 3 Card -->
+            <div id="step-3" class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">03</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">inventory_2</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Ensamblaje del sensor</h3>
+                <p class="text-on-surface-variant text-sm leading-6 mb-4">
+                    Acomoda el sensor en la canastilla con todos sus componentes.
+                </p>
+                <div class="grid grid-cols-2 gap-3">
+                    <div class="bg-surface-container-low p-3 rounded-lg text-center">
+                        <span class="material-symbols-outlined text-2xl text-primary mb-1">memory</span>
+                        <p class="text-xs font-medium">Unidad principal</p>
+                    </div>
+                    <div class="bg-surface-container-low p-3 rounded-lg text-center">
+                        <span class="material-symbols-outlined text-2xl text-primary mb-1">cable</span>
+                        <p class="text-xs font-medium">Cable de poder</p>
+                    </div>
+                    <div class="bg-surface-container-low p-3 rounded-lg text-center">
+                        <span class="material-symbols-outlined text-2xl text-primary mb-1">cell_wifi</span>
+                        <p class="text-xs font-medium">Antena</p>
+                    </div>
+                    <div class="bg-surface-container-low p-3 rounded-lg text-center">
+                        <span class="material-symbols-outlined text-2xl text-primary mb-1">shield</span>
+                        <p class="text-xs font-medium">Canastilla</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 4 Card -->
+            <div id="step-4" class="flex flex-col gap-6 p-8 bg-surface-container-lowest rounded-xl shadow-sm border-t-4 border-primary-container">
+                <div class="flex items-center justify-between">
+                    <span class="text-4xl font-black text-outline-variant opacity-30">04</span>
+                    <span class="material-symbols-outlined text-primary text-3xl">pin_drop</span>
+                </div>
+                <h3 class="text-xl font-bold text-on-surface tracking-tight">Instalación final</h3>
+                <p class="text-on-surface-variant text-sm leading-6">
+                    Instala el sensor en el galpón a una altura de 45 cm del suelo.
+                </p>
+                <div class="bg-tertiary-container/20 border border-tertiary-container/30 p-4 rounded-lg">
+                    <div class="flex items-center gap-2 text-tertiary font-bold text-sm mb-2">
+                        <span class="material-symbols-outlined text-sm">info</span>
+                        Importante
+                    </div>
+                    <p class="text-xs text-on-surface-variant">
+                        Mantener el sensor alejado de fuentes de calor directas. Realizar limpieza semanal con brocha y paño húmedo.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="bg-surface-container-low rounded-xl p-8 md:p-12">
+            <h4 class="text-primary text-2xl font-bold mb-6 text-center">¿Necesitas ayuda?</h4>
+            <p class="text-on-surface-variant text-center mb-8">Contacta a nuestro equipo de soporte</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <div class="bg-surface-container-lowest p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-3xl text-white">person</span>
+                    </div>
+                    <h5 class="font-bold text-lg text-on-surface mb-2">Damian García</h5>
+                    <p class="text-sm text-on-surface-variant mb-1">damian.garcia@asimetrix.co</p>
+                    <p class="text-sm text-primary font-semibold">+57 311 2078988</p>
+                </div>
+                <div class="bg-surface-container-lowest p-6 rounded-xl text-center">
+                    <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="material-symbols-outlined text-3xl text-white">person</span>
+                    </div>
+                    <h5 class="font-bold text-lg text-on-surface mb-2">Manuela Chavarría</h5>
+                    <p class="text-sm text-on-surface-variant mb-1">manuela.chavarria@asimetrix.co</p>
+                    <p class="text-sm text-primary font-semibold">+57 318 2202707</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <div class="flex items-center justify-center gap-2 mb-4">
+                <span class="material-symbols-outlined text-primary">sensors</span>
+                <span class="font-bold text-primary">Nodo temperatura, humedad y CO2</span>
+            </div>
+            <p class="text-on-surface-variant text-sm">© 2026 Asimetrix - Monitoreo inteligente para tu producción</p>
+        </div>
+    </footer>
+
+    <!-- Bottom Nav (Mobile) -->
+    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 pb-4 pt-2 bg-surface border-t border-outline-variant/20 shadow-[0_-4px_32px_rgba(24,28,29,0.04)] md:hidden">
+        <button class="flex flex-col items-center justify-center text-primary px-4 py-1">
+            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">menu_book</span>
+            <span class="font-Inter text-[11px] uppercase tracking-widest mt-0.5">Guía</span>
+        </button>
+    </nav>
+</body>
+</html>
