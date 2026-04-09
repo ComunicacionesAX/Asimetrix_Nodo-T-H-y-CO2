@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Capa_1" data-name="Capa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 511.49 186.4">
+  <defs>
+    <style>
+      .cls-1 {
+        font-family: Roboto-Medium, Roboto;
+        font-weight: 500;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #706f6f;
+        font-size: 12px;
+      }
+
+      .cls-3 {
+        fill: #008d36;
+      }
+
+      .cls-4 {
+        fill: #711c0d;
+      }
+
+      .cls-5 {
+        fill: #476fb5;
+      }
+
+      .cls-6 {
+        letter-spacing: -.05em;
+      }
+
+      .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-7, .cls-8, .cls-9 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-7, .cls-9 {
+        stroke: #878787;
+        stroke-width: .5px;
+      }
+
+      .cls-8 {
+        fill: #d9ddda;
+        stroke: #b3b2b2;
+      }
+
+      .cls-10 {
+        letter-spacing: 0em;
+      }
+
+      .cls-11 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-2 {
+        font-family: Roboto-Regular, Roboto;
+      }
+
+      .cls-9 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <rect class="cls-9" x="5.16" y="6.06" width="500.36" height="173.77"/>
+  <line class="cls-7" x1="116.01" y1="6.06" x2="116.01" y2="179.83"/>
+  <line class="cls-7" x1="189.15" y1="6.06" x2="189.15" y2="179.83"/>
+  <line class="cls-7" x1="262.29" y1="6.06" x2="262.29" y2="179.83"/>
+  <line class="cls-9" x1="5.16" y1="51.98" x2="505.52" y2="51.98"/>
+  <line class="cls-9" x1="5.16" y1="94.22" x2="505.52" y2="94.22"/>
+  <line class="cls-9" x1="5.16" y1="133.46" x2="505.52" y2="133.46"/>
+  <text class="cls-1" transform="translate(18.62 30.34)"><tspan x="0" y="0">Información</tspan></text>
+  <text class="cls-2" transform="translate(17.63 81.3)"><tspan x="0" y="0">Envío exi</tspan><tspan class="cls-10" x="47.25" y="0">t</tspan><tspan x="51.05" y="0">oso</tspan></text>
+  <text class="cls-2" transform="translate(269.28 74.1)"><tspan class="cls-6" x="0" y="0">T</tspan><tspan x="6.58" y="0">odo funciona correctamente</tspan></text>
+  <text class="cls-2" transform="translate(269.28 110.86)"><tspan x="0" y="0">Verificar si el Gate</tspan><tspan class="cls-11" x="97.17" y="0">W</tspan><tspan x="107.62" y="0">ay está encendido</tspan><tspan x="0" y="14.4">Verificar el canal del equipo sea el correc</tspan><tspan class="cls-10" x="218.39" y="14.4">t</tspan><tspan x="222.19" y="14.4">o</tspan></text>
+  <text class="cls-2" transform="translate(269.28 152.35)"><tspan x="0" y="0">Verificar que el equipo esté conectado</tspan><tspan x="0" y="14.4">Verificar el pun</tspan><tspan class="cls-10" x="80.09" y="14.4">t</tspan><tspan x="83.89" y="14.4">o eléctrico</tspan></text>
+  <text class="cls-2" transform="translate(17.63 115.2)"><tspan x="0" y="0">Envío fallido</tspan></text>
+  <text class="cls-2" transform="translate(17.63 157.75)"><tspan x="0" y="0">LED no enciende</tspan></text>
+  <text class="cls-1" transform="translate(143.55 30.34)"><tspan x="0" y="0">1</tspan></text>
+  <text class="cls-1" transform="translate(209.59 30.34)"><tspan x="0" y="0">1</tspan></text>
+  <text class="cls-1" transform="translate(269.44 30.34)"><tspan x="0" y="0">Solución</tspan></text>
+  <circle class="cls-5" cx="152.58" cy="72.3" r="8.37"/>
+  <circle class="cls-5" cx="152.58" cy="111.98" r="8.37"/>
+  <circle class="cls-8" cx="152.58" cy="154.79" r="8.37"/>
+  <circle class="cls-3" cx="229.77" cy="72.3" r="8.37"/>
+  <circle class="cls-4" cx="229.77" cy="111.98" r="8.37"/>
+  <circle class="cls-8" cx="229.77" cy="154.79" r="8.37"/>
+</svg>
