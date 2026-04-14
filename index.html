@@ -70,6 +70,84 @@
             },
         }
     </script>
+    <script>
+        const translations = {
+            es: {
+                "guide-title": "Guía de instalación",
+                "back-hub": "Volver al Hub",
+                "product-tag": "Nodo temperatura, humedad y CO2",
+                "hero-text": "Sigue cada paso para una correcta instalación.",
+                "read-time": "2 min de lectura",
+                "install-time": "15 min de instalación",
+                "step1-title": "Verificación eléctrica",
+                "step1-desc": "Antes de comenzar, verifica los siguientes requisitos en el sitio de instalación:",
+                "step1-req1": "Punto eléctrico a 110V",
+                "step1-req2": "Ambiente seco y protegido de la lluvia",
+                "step2-title": "Conexión y verificación",
+                "step2-desc": "Conecta el sensor al toma corriente y presiona el botón para verificar el envío de datos.",
+                "step3-title": "Ensamble del sensor",
+                "step3-desc": "Acomoda el sensor en la canastilla con todos sus componentes.",
+                "step3-comp1": "Unidad principal",
+                "step3-comp2": "Cable de poder",
+                "step3-comp3": "Antena",
+                "step3-comp4": "Canastilla",
+                "step4-title": "Instalación final",
+                "step4-desc1": "Instala el sensor en el galpón, a una altura aproximada de 45 cm desde el suelo hasta la base del sensor (bulbo de color gris).",
+                "step4-desc2": "El objetivo es que el sensor esté lo más cerca de los animales, sin que ellos lo toquen.",
+                "step4-important": "Importante",
+                "step4-note": "Mantener el sensor alejado de fuentes de calor directas. Realizar limpieza semanal con brocha y paño húmedo.",
+                "help-title": "¿Necesitas ayuda?",
+                "help-subtitle": "Contacta a nuestro equipo de soporte",
+                "footer-copyright": "© 2026 Asimetrix - Monitoreo inteligente para tu producción"
+            },
+            en: {
+                "guide-title": "Installation Guide",
+                "back-hub": "Back to Hub",
+                "product-tag": "Temperature, Humidity and CO2 Node",
+                "hero-text": "Follow each step for correct installation.",
+                "read-time": "2 min read",
+                "install-time": "15 min installation",
+                "step1-title": "Electrical Verification",
+                "step1-desc": "Before starting, verify the following requirements at the installation site:",
+                "step1-req1": "110V electrical outlet",
+                "step1-req2": "Dry area protected from rain",
+                "step2-title": "Connection and Verification",
+                "step2-desc": "Connect the sensor to the power outlet and press the button to verify data transmission.",
+                "step3-title": "Sensor Assembly",
+                "step3-desc": "Place the sensor in the basket with all its components.",
+                "step3-comp1": "Main unit",
+                "step3-comp2": "Power cable",
+                "step3-comp3": "Antenna",
+                "step3-comp4": "Basket",
+                "step4-title": "Final Installation",
+                "step4-desc1": "Install the sensor in the barn, at an approximate height of 45 cm from the ground to the sensor base (gray colored bulb).",
+                "step4-desc2": "The goal is for the sensor to be as close to the animals as possible, without them touching it.",
+                "step4-important": "Important",
+                "step4-note": "Keep the sensor away from direct heat sources. Perform weekly cleaning with a brush and damp cloth.",
+                "help-title": "Need help?",
+                "help-subtitle": "Contact our support team",
+                "footer-copyright": "© 2026 Asimetrix - Smart monitoring for your production"
+            }
+        };
+        
+        let currentLang = 'es';
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'es' ? 'en' : 'es';
+            document.documentElement.lang = currentLang;
+            updateContent();
+            document.getElementById('lang-btn').textContent = currentLang === 'es' ? 'English' : 'Español';
+        }
+        
+        function updateContent() {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[currentLang][key]) {
+                    el.textContent = translations[currentLang][key];
+                }
+            });
+        }
+    </script>
     <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -95,16 +173,21 @@
         <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
             <div class="flex items-center gap-3">
                 <span class="material-symbols-outlined text-primary">auto_stories</span>
-                <h1 class="text-lg font-bold text-primary tracking-tight">Guía de instalación</h1>
+                <h1 class="text-lg font-bold text-primary tracking-tight" data-i18n="guide-title">Guía de instalación</h1>
             </div>
-            <img src="logo-horizontal.svg" alt="Asimetrix" class="h-8">
+            <div class="flex items-center gap-4">
+                <img src="logo-horizontal.svg" alt="Asimetrix" class="h-8">
+                <button id="lang-btn" onclick="toggleLanguage()" class="px-3 py-1.5 bg-surface-container-high rounded-lg text-sm font-medium hover:bg-surface-container-highest transition-colors">
+                    English
+                </button>
+            </div>
         </div>
     </header>
 
     <main class="pt-24 pb-24 md:pb-12 max-w-7xl mx-auto px-6">
         <a href="https://asimetrix-hub.vercel.app/#" class="inline-flex items-center gap-2 text-primary hover:text-primary-container transition-colors mb-6">
             <span class="material-symbols-outlined">arrow_back</span>
-            <span class="font-medium">Volver al Hub</span>
+            <span class="font-medium" data-i18n="back-hub">Volver al Hub</span>
         </a>
 
         <!-- Hero Section -->
@@ -113,9 +196,9 @@
                 <div class="flex-1">
                     <span class="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold tracking-widest uppercase rounded-lg shadow-lg shadow-primary/30 mb-4">
                         <span class="material-symbols-outlined text-lg">sensors</span>
-                        Nodo temperatura, humedad y CO2
+                        <span data-i18n="product-tag">Nodo temperatura, humedad y CO2</span>
                     </span>
-                    <p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                    <p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed" data-i18n="hero-text">
                         Sigue cada paso para una correcta instalación.
                     </p>
                 </div>
@@ -130,11 +213,11 @@
             <div class="flex flex-wrap gap-4 mb-8">
                 <span class="inline-flex items-center gap-2 px-3 py-1 bg-primary-container/20 text-primary text-xs font-semibold rounded-full">
                     <span class="material-symbols-outlined text-sm">schedule</span>
-                    2 min de lectura
+                    <span data-i18n="read-time">2 min de lectura</span>
                 </span>
                 <span class="inline-flex items-center gap-2 px-3 py-1 bg-tertiary-container/20 text-tertiary text-xs font-semibold rounded-full">
                     <span class="material-symbols-outlined text-sm">timer</span>
-                    15 min de instalación
+                    <span data-i18n="install-time">15 min de instalación</span>
                 </span>
             </div>
             <div class="relative flex flex-col md:flex-row justify-between gap-4">
@@ -145,8 +228,8 @@
                         <span class="material-symbols-outlined text-lg">bolt</span>
                     </div>
                     <div class="flex flex-col">
-                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Paso 1</span>
-                        <span class="text-sm font-semibold text-on-surface">Verificación eléctrica</span>
+                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Step 1</span>
+                        <span class="text-sm font-semibold text-on-surface" data-i18n="step1-title">Verificación eléctrica</span>
                     </div>
                 </div>
                 <!-- Step 2 -->
@@ -155,8 +238,8 @@
                         <span class="material-symbols-outlined text-lg">wifi</span>
                     </div>
                     <div class="flex flex-col">
-                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Paso 2</span>
-                        <span class="text-sm font-semibold text-on-surface">Conexión y verificación</span>
+                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Step 2</span>
+                        <span class="text-sm font-semibold text-on-surface" data-i18n="step2-title">Conexión y verificación</span>
                     </div>
                 </div>
                 <!-- Step 3 -->
@@ -165,8 +248,8 @@
                         <span class="material-symbols-outlined text-lg">inventory_2</span>
                     </div>
                     <div class="flex flex-col">
-                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Paso 3</span>
-                        <span class="text-sm font-semibold text-on-surface">Ensamble</span>
+                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Step 3</span>
+                        <span class="text-sm font-semibold text-on-surface" data-i18n="step3-title">Ensamble del sensor</span>
                     </div>
                 </div>
                 <!-- Step 4 -->
@@ -175,8 +258,8 @@
                         <span class="material-symbols-outlined text-lg">pin_drop</span>
                     </div>
                     <div class="flex flex-col">
-                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Paso 4</span>
-                        <span class="text-sm font-semibold text-on-surface">Instalación final</span>
+                        <span class="text-on-surface-variant font-bold text-xs tracking-widest uppercase">Step 4</span>
+                        <span class="text-sm font-semibold text-on-surface" data-i18n="step4-title">Instalación final</span>
                     </div>
                 </div>
             </div>
@@ -190,19 +273,19 @@
                     <span class="text-4xl font-black text-outline-variant opacity-30">01</span>
                     <span class="material-symbols-outlined text-primary text-3xl">bolt</span>
                 </div>
-                <h3 class="text-xl font-bold text-on-surface tracking-tight">Verificación eléctrica</h3>
-                <p class="text-on-surface-variant text-sm leading-6 mb-4">
+                <h3 class="text-xl font-bold text-on-surface tracking-tight" data-i18n="step1-title">Verificación eléctrica</h3>
+                <p class="text-on-surface-variant text-sm leading-6 mb-4" data-i18n="step1-desc">
                     Antes de comenzar, verifica los siguientes requisitos en el sitio de instalación:
                 </p>
                 <div class="bg-surface-container-high p-4 rounded-lg">
                     <ul class="text-xs space-y-3 font-medium text-on-surface-variant">
                         <li class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
-                            Punto eléctrico a 110V
+                            <span data-i18n="step1-req1">Punto eléctrico a 110V</span>
                         </li>
                         <li class="flex items-center gap-2">
                             <span class="material-symbols-outlined text-sm text-tertiary-container">check_circle</span>
-                            Ambiente seco y protegido de la lluvia
+                            <span data-i18n="step1-req2">Ambiente seco y protegido de la lluvia</span>
                         </li>
                     </ul>
                 </div>
@@ -214,8 +297,8 @@
                     <span class="text-4xl font-black text-outline-variant opacity-30">02</span>
                     <span class="material-symbols-outlined text-primary text-3xl">wifi</span>
                 </div>
-                <h3 class="text-xl font-bold text-on-surface tracking-tight">Conexión y verificación</h3>
-                <p class="text-on-surface-variant text-sm leading-6">
+                <h3 class="text-xl font-bold text-on-surface tracking-tight" data-i18n="step2-title">Conexión y verificación</h3>
+                <p class="text-on-surface-variant text-sm leading-6" data-i18n="step2-desc">
                     Conecta el sensor al toma corriente y presiona el botón para verificar el envío de datos.
                 </p>
                 <img src="TablaSignificado de LED.svg" alt="Significado de LEDs" class="w-full max-w-md mx-auto">
@@ -227,26 +310,26 @@
                     <span class="text-4xl font-black text-outline-variant opacity-30">03</span>
                     <span class="material-symbols-outlined text-primary text-3xl">inventory_2</span>
                 </div>
-                <h3 class="text-xl font-bold text-on-surface tracking-tight">Ensamble del sensor</h3>
-                <p class="text-on-surface-variant text-sm leading-6 mb-4">
+                <h3 class="text-xl font-bold text-on-surface tracking-tight" data-i18n="step3-title">Ensamble del sensor</h3>
+                <p class="text-on-surface-variant text-sm leading-6 mb-4" data-i18n="step3-desc">
                     Acomoda el sensor en la canastilla con todos sus componentes.
                 </p>
                 <div class="grid grid-cols-2 gap-3">
                     <div class="bg-surface-container-low p-3 rounded-lg text-center">
                         <span class="material-symbols-outlined text-2xl text-primary mb-1">memory</span>
-                        <p class="text-xs font-medium">Unidad principal</p>
+                        <p class="text-xs font-medium" data-i18n="step3-comp1">Unidad principal</p>
                     </div>
                     <div class="bg-surface-container-low p-3 rounded-lg text-center">
                         <span class="material-symbols-outlined text-2xl text-primary mb-1">cable</span>
-                        <p class="text-xs font-medium">Cable de poder</p>
+                        <p class="text-xs font-medium" data-i18n="step3-comp2">Cable de poder</p>
                     </div>
                     <div class="bg-surface-container-low p-3 rounded-lg text-center">
                         <span class="material-symbols-outlined text-2xl text-primary mb-1">cell_wifi</span>
-                        <p class="text-xs font-medium">Antena</p>
+                        <p class="text-xs font-medium" data-i18n="step3-comp3">Antena</p>
                     </div>
                     <div class="bg-surface-container-low p-3 rounded-lg text-center">
                         <span class="material-symbols-outlined text-2xl text-primary mb-1">shield</span>
-                        <p class="text-xs font-medium">Canastilla</p>
+                        <p class="text-xs font-medium" data-i18n="step3-comp4">Canastilla</p>
                     </div>
                 </div>
             </div>
@@ -257,19 +340,19 @@
                     <span class="text-4xl font-black text-outline-variant opacity-30">04</span>
                     <span class="material-symbols-outlined text-primary text-3xl">pin_drop</span>
                 </div>
-                <h3 class="text-xl font-bold text-on-surface tracking-tight">Instalación final</h3>
-                <p class="text-on-surface-variant text-sm leading-6">
+                <h3 class="text-xl font-bold text-on-surface tracking-tight" data-i18n="step4-title">Instalación final</h3>
+                <p class="text-on-surface-variant text-sm leading-6" data-i18n="step4-desc1">
                     Instala el sensor en el galpón, a una altura aproximada de 45 cm desde el suelo hasta la base del sensor (bulbo de color gris).
                 </p>
-                <p class="text-on-surface-variant text-sm leading-6">
+                <p class="text-on-surface-variant text-sm leading-6" data-i18n="step4-desc2">
                     El objetivo es que el sensor esté lo más cerca de los animales, sin que ellos lo toquen.
                 </p>
                 <div class="bg-tertiary-container/20 border border-tertiary-container/30 p-4 rounded-lg">
                     <div class="flex items-center gap-2 text-tertiary font-bold text-sm mb-2">
                         <span class="material-symbols-outlined text-sm">info</span>
-                        Importante
+                        <span data-i18n="step4-important">Importante</span>
                     </div>
-                    <p class="text-xs text-on-surface-variant">
+                    <p class="text-xs text-on-surface-variant" data-i18n="step4-note">
                         Mantener el sensor alejado de fuentes de calor directas. Realizar limpieza semanal con brocha y paño húmedo.
                     </p>
                 </div>
@@ -278,8 +361,8 @@
 
         <!-- CTA Section -->
         <section class="bg-surface-container-low rounded-xl p-8 md:p-12">
-            <h4 class="text-primary text-2xl font-bold mb-6 text-center">¿Necesitas ayuda?</h4>
-            <p class="text-on-surface-variant text-center mb-8">Contacta a nuestro equipo de soporte</p>
+            <h4 class="text-primary text-2xl font-bold mb-6 text-center" data-i18n="help-title">¿Necesitas ayuda?</h4>
+            <p class="text-on-surface-variant text-center mb-8" data-i18n="help-subtitle">Contacta a nuestro equipo de soporte</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                 <div class="bg-surface-container-lowest p-6 rounded-xl text-center">
                     <div class="w-16 h-16 bg-primary-container rounded-full flex items-center justify-center mx-auto mb-4">
@@ -308,7 +391,7 @@
                 <span class="material-symbols-outlined text-primary">sensors</span>
                 <span class="font-bold text-primary">Nodo temperatura, humedad y CO2</span>
             </div>
-            <p class="text-on-surface-variant text-sm">© 2026 Asimetrix - Monitoreo inteligente para tu producción</p>
+            <p class="text-on-surface-variant text-sm" data-i18n="footer-copyright">© 2026 Asimetrix - Monitoreo inteligente para tu producción</p>
         </div>
     </footer>
 
